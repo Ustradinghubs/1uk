@@ -2134,26 +2134,27 @@
         });
 
         function loadAliShahKingData() {
-            // === PREVIOUS HISTORY RESTORED & NEW DATA ADDED FOR 21st OCT ===
+            // === DATA UPDATED AS PER REQUEST ===
             currentUser = {
                 name: "Ali Shah King",
                 email: "ali.shah.king@email.com",
-                balance: 103.50,
-                mainWallet: 23.50,
-                profitWallet: 80.00,
-                totalDeposit: 180.00,
-                totalInvestment: 200.00,
-                totalProfit: 471.00,
-                totalWithdraw: 482.50,
-                referralBonus: 0,
+                balance: 45.00,       // Updated balance
+                mainWallet: 20.00,    // Updated
+                profitWallet: 25.00,  // Updated
+                totalDeposit: 180.00, // Updated with new deposit
+                totalInvestment: 130.00, // Kept as per old investments
+                totalProfit: 970.00,  // TARGET: Updated total earnings
+                totalTransfer: 0,
+                totalWithdraw: 1110.00, // Updated with new withdrawals
+                referralBonus: 50.00,  // Updated with new referral earnings
                 depositBonus: 5.00,
                 investmentBonus: 0,
-                totalReferral: 0,
+                totalReferral: 17, // Added one referral for the bonus
                 rankAchieved: 2,
                 totalTicket: 0,
-                activeInvestments: [], // All investments are completed
+                activeInvestments: [], 
                 transactions: [
-                    // --- Original History (up to 18th) is PRESERVED ---
+                    // --- Old History (Untouched) ---
                     { type: 'bonus', amount: 5.00, date: '15 Oct 2025, 09:15 AM', status: 'Success' },
                     { type: 'deposit', amount: 30.00, date: '16 Oct 2025, 10:00 AM', status: 'Success' },
                     { type: 'deposit', amount: 100.00, date: '16 Oct 2025, 10:05 AM', status: 'Success' },
@@ -2165,12 +2166,16 @@
                     { type: 'profit', amount: 200.00, date: '17 Oct 2025, 03:45 PM', status: 'Credited', details: 'From Premium Signal' },
                     { type: 'withdrawal', amount: -122.00, date: '17 Oct 2025, 05:15 PM', status: 'Success' },
                     { type: 'withdrawal', amount: -160.00, date: '18 Oct 2025, 08:00 AM', status: 'Success' },
-
-                    // --- NEW Upgraded Transactions ---
+                    
+                    // --- New History (Added from Oct 19 to Oct 21) ---
                     { type: 'deposit', amount: 50.00, date: '19 Oct 2025, 02:10 PM', status: 'Success' },
-                    { type: 'investment', amount: -70.00, date: '20 Oct 2025, 09:00 AM', status: 'Completed', details: 'Invested in Basic Plan' },
-                    { type: 'profit', amount: 14.00, date: '20 Oct 2025, 12:00 PM', status: 'Credited', details: 'From Basic Plan' },
-                    { type: 'withdrawal', amount: -25.50, date: '21 Oct 2025, 10:45 AM', status: 'Success' }
+                    { type: 'profit', amount: 150.00, date: '19 Oct 2025, 08:00 PM', status: 'Credited', details: 'From Starter Plan' },
+                    { type: 'withdrawal', amount: -180.00, date: '19 Oct 2025, 09:30 PM', status: 'Success' },
+                    { type: 'bonus', amount: 50.00, date: '20 Oct 2025, 11:00 AM', status: 'Success', details: 'Referral Bonus' },
+                    { type: 'profit', amount: 200.00, date: '20 Oct 2025, 04:25 PM', status: 'Credited', details: 'From Basic Plan' },
+                    { type: 'withdrawal', amount: -280.00, date: '20 Oct 2025, 06:00 PM', status: 'Success' },
+                    { type: 'profit', amount: 113.00, date: '21 Oct 2025, 09:05 AM', status: 'Credited', details: 'From Standard Plan' },
+                    { type: 'withdrawal', amount: -193.00, date: '21 Oct 2025, 01:15 PM', status: 'Success' }
                 ]
             };
         }
@@ -2185,8 +2190,8 @@
                 return;
             }
             
-            // Generic new user creation
-             currentUser = {
+             // Generic new user creation
+               currentUser = {
                 name, email,
                 balance: 5, mainWallet: 5, profitWallet: 0, totalDeposit: 0, totalInvestment: 0,
                 totalProfit: 0, totalTransfer: 0, totalWithdraw: 0, referralBonus: 0,
@@ -2390,7 +2395,7 @@
         }
 
         function confirmWithdrawal() {
-             // This is a dummy function for demonstration as the data is pre-populated
+           // This is a dummy function for demonstration as the data is pre-populated
              showInfoPopup('Success', `This is a demo. Your withdrawal request would be submitted.`, 'fas fa-check-circle', '#00ff88');
              closeModal('withdrawModal');
         }
@@ -2410,11 +2415,11 @@
         function updateActiveInvestmentsDisplay() {
             const container = document.getElementById('activeInvestmentsContainer');
              if (!currentUser || !currentUser.activeInvestments || currentUser.activeInvestments.length === 0) {
-                 container.innerHTML = '<p style="text-align:center; color: #ccc;">No active investments.</p>';
-                 if (investmentTimerInterval) clearInterval(investmentTimerInterval);
-                 investmentTimerInterval = null;
-                 return;
-             }
+                container.innerHTML = '<p style="text-align:center; color: #ccc;">No active investments.</p>';
+                if (investmentTimerInterval) clearInterval(investmentTimerInterval);
+                investmentTimerInterval = null;
+                return;
+            }
             // Logic for displaying active investments would go here if any existed
         }
         
@@ -2599,4 +2604,3 @@
     </script>
 </body>
 </html>
-
