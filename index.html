@@ -2134,44 +2134,43 @@
         });
 
         function loadAliShahKingData() {
-            // UPGRADED pre-populated data for Ali Shah King as per new request
+            // === PREVIOUS HISTORY RESTORED & NEW DATA ADDED FOR 21st OCT ===
             currentUser = {
                 name: "Ali Shah King",
                 email: "ali.shah.king@email.com",
-                balance: 135.00,
-                mainWallet: 100.00,
-                profitWallet: 35.00,
-                totalDeposit: 130.00,
-                totalInvestment: 130.00,
-                totalProfit: 457.00,
-                totalTransfer: 0,
-                totalWithdraw: 457.00,
+                balance: 103.50,
+                mainWallet: 23.50,
+                profitWallet: 80.00,
+                totalDeposit: 180.00,
+                totalInvestment: 200.00,
+                totalProfit: 471.00,
+                totalWithdraw: 482.50,
                 referralBonus: 0,
                 depositBonus: 5.00,
                 investmentBonus: 0,
                 totalReferral: 0,
-                rankAchieved: 2, // Rank upgraded
+                rankAchieved: 2,
                 totalTicket: 0,
                 activeInvestments: [], // All investments are completed
                 transactions: [
-                    // Day 1
+                    // --- Original History (up to 18th) is PRESERVED ---
                     { type: 'bonus', amount: 5.00, date: '15 Oct 2025, 09:15 AM', status: 'Success' },
-                    
-                    // Day 2
                     { type: 'deposit', amount: 30.00, date: '16 Oct 2025, 10:00 AM', status: 'Success' },
                     { type: 'deposit', amount: 100.00, date: '16 Oct 2025, 10:05 AM', status: 'Success' },
                     { type: 'investment', amount: -130.00, date: '16 Oct 2025, 11:00 AM', status: 'Completed', details: 'All funds invested' },
                     { type: 'profit', amount: 152.00, date: '16 Oct 2025, 05:00 PM', status: 'Credited', details: 'From Standard Plan' },
                     { type: 'withdrawal', amount: -75.00, date: '16 Oct 2025, 06:30 PM', status: 'Success' },
-
-                    // Day 3
                     { type: 'profit', amount: 105.00, date: '17 Oct 2025, 09:20 AM', status: 'Credited', details: 'From Basic Plan Re-investment' },
                     { type: 'withdrawal', amount: -100.00, date: '17 Oct 2025, 11:00 AM', status: 'Success' },
                     { type: 'profit', amount: 200.00, date: '17 Oct 2025, 03:45 PM', status: 'Credited', details: 'From Premium Signal' },
                     { type: 'withdrawal', amount: -122.00, date: '17 Oct 2025, 05:15 PM', status: 'Success' },
-                    
-                    // Today
-                    { type: 'withdrawal', amount: -160.00, date: '18 Oct 2025, 08:00 AM', status: 'Success' }
+                    { type: 'withdrawal', amount: -160.00, date: '18 Oct 2025, 08:00 AM', status: 'Success' },
+
+                    // --- NEW Upgraded Transactions ---
+                    { type: 'deposit', amount: 50.00, date: '19 Oct 2025, 02:10 PM', status: 'Success' },
+                    { type: 'investment', amount: -70.00, date: '20 Oct 2025, 09:00 AM', status: 'Completed', details: 'Invested in Basic Plan' },
+                    { type: 'profit', amount: 14.00, date: '20 Oct 2025, 12:00 PM', status: 'Credited', details: 'From Basic Plan' },
+                    { type: 'withdrawal', amount: -25.50, date: '21 Oct 2025, 10:45 AM', status: 'Success' }
                 ]
             };
         }
@@ -2411,11 +2410,11 @@
         function updateActiveInvestmentsDisplay() {
             const container = document.getElementById('activeInvestmentsContainer');
              if (!currentUser || !currentUser.activeInvestments || currentUser.activeInvestments.length === 0) {
-                container.innerHTML = '<p style="text-align:center; color: #ccc;">No active investments.</p>';
-                if (investmentTimerInterval) clearInterval(investmentTimerInterval);
-                investmentTimerInterval = null;
-                return;
-            }
+                 container.innerHTML = '<p style="text-align:center; color: #ccc;">No active investments.</p>';
+                 if (investmentTimerInterval) clearInterval(investmentTimerInterval);
+                 investmentTimerInterval = null;
+                 return;
+             }
             // Logic for displaying active investments would go here if any existed
         }
         
@@ -2600,3 +2599,4 @@
     </script>
 </body>
 </html>
+
